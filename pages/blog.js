@@ -12,7 +12,7 @@ const BlogPage = () => {
             const blogs = await DataStore.query(Blogpost);
             setBlogs(blogs);
         }
-        const subscription = DataStore.observe(Blogpost).subscribe(fetchBlogs())
+        const subscription = DataStore.observe(Blogpost).subscribe(() => fetchBlogs())
     }, []);
     
     return (
