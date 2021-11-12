@@ -7,7 +7,12 @@ const BlogPage = () => {
     const [blogs, setBlogs] = useState([]);
     
     useEffect(() => {
-        DataStore.query(Blogpost).then(data => setBlogs(data));
+        fetchBlogs()
+        async function fetchBlogs() {
+            const blogs = await DataStore.query(Blogpost);
+            setBlogs(blogs);
+        }
+        const subscription = DataStore.observe(Blogpost).subscribe(fetchBlogs())
     }, []);
     
     return (
