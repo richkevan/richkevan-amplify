@@ -4,14 +4,12 @@ import { schema } from './schema';
 
 
 
-const { FeaturePriority, Feature, Project, ProjectcategoryProject, Projectcategory, Blogpost, BlogcategoryBlogpost, Blogcategory, CertIssuer, Certificates, CurrentWork, SiteTitle, WorkExperience } = initSchema(schema);
+const { FeaturePriority, Feature, Project, Blogpost, BlogcategoryBlogpost, Blogcategory, CertIssuer, Certificates, CurrentWork, SiteTitle, WorkExperience, Projectcategory } = initSchema(schema);
 
 export {
   FeaturePriority,
   Feature,
   Project,
-  ProjectcategoryProject,
-  Projectcategory,
   Blogpost,
   BlogcategoryBlogpost,
   Blogcategory,
@@ -19,5 +17,6 @@ export {
   Certificates,
   CurrentWork,
   SiteTitle,
-  WorkExperience
+  WorkExperience,
+  Projectcategory
 };

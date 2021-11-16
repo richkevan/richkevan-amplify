@@ -55,16 +55,16 @@ type Blogcategory @model @auth(rules: [{allow: public}]) {
 type Projectcategory @model @auth(rules: [{allow: public}]) {
   id: ID!
   category: String
-  ProjectcategoryProjects: [ProjectcategoryProject] @connection(keyName: "byProjectcategory", fields: ["id"])
+  ProjectcategoryProjects: [Project] @connection(keyName: "byProjectcategory", fields: ["id"])
 }
 
-type Project @model @auth(rules: [{allow: public}]) {
+type Project @model @auth(rules: [{allow: public}]) @key(name: "byProjectcategory", fields: ["projectcategoryID"]) {
   id: ID!
   title: String
   info: String
   github: AWSURL
-  projectcategorys: [ProjectcategoryProject] @connection(keyName: "byProject", fields: ["id"])
   link: AWSURL
+  projectcategoryID: ID
 }
 
 type Blogpost @model @auth(rules: [{allow: public}]) {
@@ -82,12 +82,4 @@ type BlogcategoryBlogpost @model(queries: null) @key(name: "byBlogcategory", fie
   blogcategory: Blogcategory! @connection(fields: ["blogcategoryID"])
   blogpost: Blogpost! @connection(fields: ["blogpostID"])
 }
-
-type ProjectcategoryProject @model(queries: null) @key(name: "byProjectcategory", fields: ["projectcategoryID", "projectID"]) @key(name: "byProject", fields: ["projectID", "projectcategoryID"]) @auth(rules: [{allow: public}, {allow: public}]) {
-  id: ID!
-  projectcategoryID: ID!
-  projectID: ID!
-  projectcategory: Projectcategory! @connection(fields: ["projectcategoryID"])
-  project: Project! @connection(fields: ["projectID"])
-}
- 
+  

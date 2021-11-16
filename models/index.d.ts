@@ -16,14 +16,6 @@ type ProjectMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type ProjectcategoryProjectMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
-type ProjectcategoryMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type BlogpostMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -56,6 +48,10 @@ type WorkExperienceMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+type ProjectcategoryMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 export declare class FeaturePriority {
   readonly id: string;
   readonly priority?: string;
@@ -81,32 +77,12 @@ export declare class Project {
   readonly title?: string;
   readonly info?: string;
   readonly github?: string;
-  readonly projectcategorys?: (ProjectcategoryProject | null)[];
   readonly link?: string;
+  readonly projectcategoryID?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Project, ProjectMetaData>);
   static copyOf(source: Project, mutator: (draft: MutableModel<Project, ProjectMetaData>) => MutableModel<Project, ProjectMetaData> | void): Project;
-}
-
-export declare class ProjectcategoryProject {
-  readonly id: string;
-  readonly projectcategory: Projectcategory;
-  readonly project: Project;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<ProjectcategoryProject, ProjectcategoryProjectMetaData>);
-  static copyOf(source: ProjectcategoryProject, mutator: (draft: MutableModel<ProjectcategoryProject, ProjectcategoryProjectMetaData>) => MutableModel<ProjectcategoryProject, ProjectcategoryProjectMetaData> | void): ProjectcategoryProject;
-}
-
-export declare class Projectcategory {
-  readonly id: string;
-  readonly category?: string;
-  readonly ProjectcategoryProjects?: (ProjectcategoryProject | null)[];
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Projectcategory, ProjectcategoryMetaData>);
-  static copyOf(source: Projectcategory, mutator: (draft: MutableModel<Projectcategory, ProjectcategoryMetaData>) => MutableModel<Projectcategory, ProjectcategoryMetaData> | void): Projectcategory;
 }
 
 export declare class Blogpost {
@@ -195,4 +171,14 @@ export declare class WorkExperience {
   readonly updatedAt?: string;
   constructor(init: ModelInit<WorkExperience, WorkExperienceMetaData>);
   static copyOf(source: WorkExperience, mutator: (draft: MutableModel<WorkExperience, WorkExperienceMetaData>) => MutableModel<WorkExperience, WorkExperienceMetaData> | void): WorkExperience;
+}
+
+export declare class Projectcategory {
+  readonly id: string;
+  readonly category?: string;
+  readonly ProjectcategoryProjects?: (Project | null)[];
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Projectcategory, ProjectcategoryMetaData>);
+  static copyOf(source: Projectcategory, mutator: (draft: MutableModel<Projectcategory, ProjectcategoryMetaData>) => MutableModel<Projectcategory, ProjectcategoryMetaData> | void): Projectcategory;
 }
