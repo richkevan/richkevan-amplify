@@ -12,7 +12,6 @@ const Title = () => {
     const models = await DataStore.query(SiteTitle);
     setTitle(models[0].title);
     }},[]);
-    console.log(title);
     return (
         <>
             <Link href='/'>
