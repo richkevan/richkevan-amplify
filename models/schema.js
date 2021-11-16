@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Blogcategory": {
-            "name": "Blogcategory",
+        "CertIssuer": {
+            "name": "CertIssuer",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,25 +10,32 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "category": {
-                    "name": "category",
+                "name": {
+                    "name": "name",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "BlogcategoryBlogposts": {
-                    "name": "BlogcategoryBlogposts",
+                "website": {
+                    "name": "website",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "CertificatesIssuer": {
+                    "name": "CertificatesIssuer",
                     "isArray": true,
                     "type": {
-                        "model": "BlogcategoryBlogpost"
+                        "model": "Certificates"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "blogcategory"
+                        "associatedWith": "certissuerID"
                     }
                 },
                 "createdAt": {
@@ -49,7 +56,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Blogcategories",
+            "pluralName": "CertIssuers",
             "attributes": [
                 {
                     "type": "model",
@@ -73,8 +80,8 @@ export const schema = {
                 }
             ]
         },
-        "BlogcategoryBlogpost": {
-            "name": "BlogcategoryBlogpost",
+        "Certificates": {
+            "name": "Certificates",
             "fields": {
                 "id": {
                     "name": "id",
@@ -83,31 +90,33 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "blogcategory": {
-                    "name": "blogcategory",
+                "cert_name": {
+                    "name": "cert_name",
                     "isArray": false,
-                    "type": {
-                        "model": "Blogcategory"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "blogcategoryID"
-                    }
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 },
-                "blogpost": {
-                    "name": "blogpost",
+                "cert_date": {
+                    "name": "cert_date",
                     "isArray": false,
-                    "type": {
-                        "model": "Blogpost"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "blogpostID"
-                    }
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cert_link": {
+                    "name": "cert_link",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "certissuerID": {
+                    "name": "certissuerID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -127,31 +136,18 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "BlogcategoryBlogposts",
+            "pluralName": "Certificates",
             "attributes": [
                 {
                     "type": "model",
-                    "properties": {
-                        "queries": null
-                    }
+                    "properties": {}
                 },
                 {
                     "type": "key",
                     "properties": {
-                        "name": "byBlogcategory",
+                        "name": "byCertIssuer",
                         "fields": [
-                            "blogcategoryID",
-                            "blogpostID"
-                        ]
-                    }
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byBlogpost",
-                        "fields": [
-                            "blogpostID",
-                            "blogcategoryID"
+                            "certissuerID"
                         ]
                     }
                 },
@@ -167,23 +163,14 @@ export const schema = {
                                     "delete",
                                     "read"
                                 ]
-                            },
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
                             }
                         ]
                     }
                 }
             ]
         },
-        "Blogpost": {
-            "name": "Blogpost",
+        "CurrentWork": {
+            "name": "CurrentWork",
             "fields": {
                 "id": {
                     "name": "id",
@@ -196,36 +183,15 @@ export const schema = {
                     "name": "title",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "content": {
                     "name": "content",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "media": {
-                    "name": "media",
-                    "isArray": false,
-                    "type": "AWSURL",
                     "isRequired": false,
                     "attributes": []
-                },
-                "blogcategorys": {
-                    "name": "blogcategorys",
-                    "isArray": true,
-                    "type": {
-                        "model": "BlogcategoryBlogpost"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "blogpost"
-                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -245,7 +211,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Blogposts",
+            "pluralName": "CurrentWorks",
             "attributes": [
                 {
                     "type": "model",
@@ -269,8 +235,8 @@ export const schema = {
                 }
             ]
         },
-        "Projectcategory": {
-            "name": "Projectcategory",
+        "FeaturedProject": {
+            "name": "FeaturedProject",
             "fields": {
                 "id": {
                     "name": "id",
@@ -279,25 +245,24 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "category": {
-                    "name": "category",
+                "title": {
+                    "name": "title",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "ProjectcategoryProjects": {
-                    "name": "ProjectcategoryProjects",
-                    "isArray": true,
+                "FeatureProject": {
+                    "name": "FeatureProject",
+                    "isArray": false,
                     "type": {
-                        "model": "ProjectcategoryProject"
+                        "model": "Project"
                     },
                     "isRequired": false,
                     "attributes": [],
-                    "isArrayNullable": true,
                     "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "projectcategory"
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "featuredProjectFeatureProjectId"
                     }
                 },
                 "createdAt": {
@@ -318,7 +283,94 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Projectcategories",
+            "pluralName": "FeaturedProjects",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Project": {
+            "name": "Project",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "title": {
+                    "name": "title",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "info": {
+                    "name": "info",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "github": {
+                    "name": "github",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "projectcategorys": {
+                    "name": "projectcategorys",
+                    "isArray": true,
+                    "type": {
+                        "model": "ProjectcategoryProject"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "project"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Projects",
             "attributes": [
                 {
                     "type": "model",
@@ -451,8 +503,8 @@ export const schema = {
                 }
             ]
         },
-        "Project": {
-            "name": "Project",
+        "Projectcategory": {
+            "name": "Projectcategory",
             "fields": {
                 "id": {
                     "name": "id",
@@ -461,29 +513,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "title": {
-                    "name": "title",
+                "category": {
+                    "name": "category",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "info": {
-                    "name": "info",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "github": {
-                    "name": "github",
-                    "isArray": false,
-                    "type": "AWSURL",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "projectcategorys": {
-                    "name": "projectcategorys",
+                "ProjectcategoryProjects": {
+                    "name": "ProjectcategoryProjects",
                     "isArray": true,
                     "type": {
                         "model": "ProjectcategoryProject"
@@ -493,7 +531,7 @@ export const schema = {
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "project"
+                        "associatedWith": "projectcategory"
                     }
                 },
                 "createdAt": {
@@ -514,7 +552,502 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Projects",
+            "pluralName": "Projectcategories",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "FeaturedBlog": {
+            "name": "FeaturedBlog",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "title": {
+                    "name": "title",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Feature_Blog": {
+                    "name": "Feature_Blog",
+                    "isArray": false,
+                    "type": {
+                        "model": "Blogpost"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "featuredBlogFeatureBlogId"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "FeaturedBlogs",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Blogpost": {
+            "name": "Blogpost",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "title": {
+                    "name": "title",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "content": {
+                    "name": "content",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "media": {
+                    "name": "media",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "blogcategorys": {
+                    "name": "blogcategorys",
+                    "isArray": true,
+                    "type": {
+                        "model": "BlogcategoryBlogpost"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "blogpost"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Blogposts",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "BlogcategoryBlogpost": {
+            "name": "BlogcategoryBlogpost",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "blogcategory": {
+                    "name": "blogcategory",
+                    "isArray": false,
+                    "type": {
+                        "model": "Blogcategory"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "blogcategoryID"
+                    }
+                },
+                "blogpost": {
+                    "name": "blogpost",
+                    "isArray": false,
+                    "type": {
+                        "model": "Blogpost"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "blogpostID"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "BlogcategoryBlogposts",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {
+                        "queries": null
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byBlogcategory",
+                        "fields": [
+                            "blogcategoryID",
+                            "blogpostID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byBlogpost",
+                        "fields": [
+                            "blogpostID",
+                            "blogcategoryID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Blogcategory": {
+            "name": "Blogcategory",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "category": {
+                    "name": "category",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "BlogcategoryBlogposts": {
+                    "name": "BlogcategoryBlogposts",
+                    "isArray": true,
+                    "type": {
+                        "model": "BlogcategoryBlogpost"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "blogcategory"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Blogcategories",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "SiteTitle": {
+            "name": "SiteTitle",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "title": {
+                    "name": "title",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "SiteTitles",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "WorkExperience": {
+            "name": "WorkExperience",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "job_title": {
+                    "name": "job_title",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "description": {
+                    "name": "description",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "job_start": {
+                    "name": "job_start",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "job_end": {
+                    "name": "job_end",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "job_place": {
+                    "name": "job_place",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "job_bullets": {
+                    "name": "job_bullets",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "WorkExperiences",
             "attributes": [
                 {
                     "type": "model",
@@ -541,5 +1074,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "f841363738a5a675528b41f8ed29ead5"
+    "version": "f8fd4fe468a447d0839f5ee78783d699"
 };

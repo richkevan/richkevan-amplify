@@ -1,12 +1,12 @@
 import Head from "next/head"
-import Navbar from "./Header_components/navbar"
+import Heading from "./Header_components/header"
 import Footer from "./Footer_components/footer"
 
 
 const Layout = ({ children }) => {
     return (
         <>
-            <Navbar />
+            <Heading />
             <main>{children}</main>
             <Footer />
         </>

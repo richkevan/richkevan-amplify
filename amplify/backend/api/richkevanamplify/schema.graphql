@@ -1,3 +1,51 @@
+type FeaturePriority @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  priority: String
+  Feature: Feature @connection
+}
+
+type Feature @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Project: Project @connection
+  Blogpost: Blogpost @connection
+}
+
+type CertIssuer @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  website: AWSURL
+  CertificatesIssuer: [Certificates] @connection(keyName: "byCertIssuer", fields: ["id"])
+}
+
+type CurrentWork @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  content: String
+}
+
+type SiteTitle @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+}
+
+type Certificates @model @auth(rules: [{allow: public}]) @key(name: "byCertIssuer", fields: ["certissuerID"]) {
+  id: ID!
+  cert_name: String
+  cert_date: AWSDate
+  cert_link: AWSURL
+  certissuerID: ID
+}
+
+type WorkExperience @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  job_title: String
+  description: String
+  job_start: AWSDate
+  job_end: AWSDate
+  job_place: String
+  job_bullets: [String]
+}
+
 type Blogcategory @model @auth(rules: [{allow: public}]) {
   id: ID!
   category: String
@@ -16,6 +64,7 @@ type Project @model @auth(rules: [{allow: public}]) {
   info: String
   github: AWSURL
   projectcategorys: [ProjectcategoryProject] @connection(keyName: "byProject", fields: ["id"])
+  link: AWSURL
 }
 
 type Blogpost @model @auth(rules: [{allow: public}]) {
@@ -26,19 +75,19 @@ type Blogpost @model @auth(rules: [{allow: public}]) {
   blogcategorys: [BlogcategoryBlogpost] @connection(keyName: "byBlogpost", fields: ["id"])
 }
 
-type ProjectcategoryProject @model(queries: null) @key(name: "byProjectcategory", fields: ["projectcategoryID", "projectID"]) @key(name: "byProject", fields: ["projectID", "projectcategoryID"]) @auth(rules: [{allow: public}, {allow: public}]) {
-  id: ID!
-  projectcategoryID: ID!
-  projectID: ID!
-  projectcategory: Projectcategory! @connection(fields: ["projectcategoryID"])
-  project: Project! @connection(fields: ["projectID"])
-}
-
 type BlogcategoryBlogpost @model(queries: null) @key(name: "byBlogcategory", fields: ["blogcategoryID", "blogpostID"]) @key(name: "byBlogpost", fields: ["blogpostID", "blogcategoryID"]) @auth(rules: [{allow: public}, {allow: public}]) {
   id: ID!
   blogcategoryID: ID!
   blogpostID: ID!
   blogcategory: Blogcategory! @connection(fields: ["blogcategoryID"])
   blogpost: Blogpost! @connection(fields: ["blogpostID"])
+}
+
+type ProjectcategoryProject @model(queries: null) @key(name: "byProjectcategory", fields: ["projectcategoryID", "projectID"]) @key(name: "byProject", fields: ["projectID", "projectcategoryID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  projectcategoryID: ID!
+  projectID: ID!
+  projectcategory: Projectcategory! @connection(fields: ["projectcategoryID"])
+  project: Project! @connection(fields: ["projectID"])
 }
  

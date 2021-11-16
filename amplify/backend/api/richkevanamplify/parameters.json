@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "richkevanamplify",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authrichkevanamplify590ece81",
+      "Outputs.UserPoolId"
+    ]
+  }
 }
