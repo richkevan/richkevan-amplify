@@ -1,0 +1,16 @@
+.Header_div {
+    padding-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    color: blue;
+}
+
+.Header_nav {
+    position: fixed;
+    right: 25px;
+}
+
+.Header_nav > * {
+    padding-right: 15px;
+}

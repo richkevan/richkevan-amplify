@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    flex: 1 1 33%;
+}
+
+.footer > div:nth-child(2n) {
+    border-right: 5px solid #fff;
+
+}
