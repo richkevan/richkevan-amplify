@@ -4,9 +4,10 @@ import { schema } from './schema';
 
 
 
-const { Hero, FeaturePriority, Feature, Project, Blogpost, BlogcategoryBlogpost, Blogcategory, CertIssuer, Certificates, CurrentWork, SiteTitle, WorkExperience, Projectcategory } = initSchema(schema);
+const { SubHero, Hero, FeaturePriority, Feature, Project, Blogpost, BlogcategoryBlogpost, Blogcategory, CertIssuer, Certificates, CurrentWork, SiteTitle, WorkExperience, Projectcategory } = initSchema(schema);
 
 export {
+  SubHero,
   Hero,
   FeaturePriority,
   Feature,

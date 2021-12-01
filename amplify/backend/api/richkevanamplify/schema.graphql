@@ -1,9 +1,15 @@
+type SubHero @model @auth(rules: [{allow: public}]) @key(name: "byHero", fields: ["heroID"]) {
+  id: ID!
+  heroID: ID
+  subHeading: String
+  heroImage: String
+  heroImageAlt: String
+}
+
 type Hero @model @auth(rules: [{allow: public}]) {
   id: ID!
   headline: String
-  subheading: [String]
-  heroimage: [AWSURL]
-  imagealt: String
+  SubHeroes: [SubHero] @connection(keyName: "byHero", fields: ["id"])
 }
 
 type FeaturePriority @model @auth(rules: [{allow: public}]) {

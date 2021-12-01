@@ -1,5 +1,94 @@
 export const schema = {
     "models": {
+        "SubHero": {
+            "name": "SubHero",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "heroID": {
+                    "name": "heroID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "subHeading": {
+                    "name": "subHeading",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "heroImage": {
+                    "name": "heroImage",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "heroImageAlt": {
+                    "name": "heroImageAlt",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "SubHeroes",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byHero",
+                        "fields": [
+                            "heroID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Hero": {
             "name": "Hero",
             "fields": {
@@ -17,28 +106,19 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "subheading": {
-                    "name": "subheading",
+                "SubHeroes": {
+                    "name": "SubHeroes",
                     "isArray": true,
-                    "type": "String",
+                    "type": {
+                        "model": "SubHero"
+                    },
                     "isRequired": false,
                     "attributes": [],
-                    "isArrayNullable": true
-                },
-                "heroimage": {
-                    "name": "heroimage",
-                    "isArray": true,
-                    "type": "AWSURL",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "imagealt": {
-                    "name": "imagealt",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "heroID"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -1062,5 +1142,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "cb4228862a9969dbec82a65fc3d53802"
+    "version": "8c1fa6bbea71110bba3551eea551adb6"
 };
