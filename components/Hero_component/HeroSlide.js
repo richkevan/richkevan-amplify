@@ -75,8 +75,8 @@ const HeroSlide = () => {
                         return (
                             <motion.div className={styles.title} 
                             animate={{
-                                left: ['0%', '50%', '50%', '0%'], 
-                                transform: ['translateX(-100%)','translateX(-75%)', 'translateX(-80%)', 'translateX(-100%)'],
+                                left: ['0%', '40%', '40%', '0%'], 
+                                transform: ['translateX(-100%)','translateX(-70%)', 'translateX(-70%)', 'translateX(-100%)'],
                                 opacity: [.3, .9, 1, 0]
                             }}
                             transition={{
@@ -106,7 +106,7 @@ const HeroSlide = () => {
                                 times: [0, .1,.9, 1],
                             }}
                             >
-                                <img key={slide[obj].title} className={cx('slide')} src={slide[obj].image.src} alt={slide[obj].title}/>
+                                <Image key={slide[obj].title} src={slide[obj].image} alt={slide[obj].title} layout='fill' objectFit='cover'/>
                             </motion.div>
                         )
                     }

@@ -5,7 +5,7 @@
 .heroSlide {
   position: relative;
   width: 100%;
-  height: 40vh;
+  height: 55vw;
   overflow: hidden;
 }
 
@@ -14,14 +14,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    
+    width: 45%;
 }
 
 .title {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60%;
+    width: 45%;
     height: 60%;
 }
 
@@ -37,7 +37,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 40%;
+    width: 55%;
     height: 100%;
     overflow: hidden;
 }
