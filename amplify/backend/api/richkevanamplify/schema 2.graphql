@@ -1,11 +1,3 @@
-type Hero @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  headline: String
-  subheading: [String]
-  heroimage: [AWSURL]
-  imagealt: String
-}
-
 type FeaturePriority @model @auth(rules: [{allow: public}]) {
   id: ID!
   priority: String
@@ -90,4 +82,4 @@ type BlogcategoryBlogpost @model(queries: null) @key(name: "byBlogcategory", fie
   blogcategory: Blogcategory! @connection(fields: ["blogcategoryID"])
   blogpost: Blogpost! @connection(fields: ["blogpostID"])
 }
- 
+  

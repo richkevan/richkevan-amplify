@@ -4,6 +4,10 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type HeroMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type FeaturePriorityMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -50,6 +54,18 @@ type WorkExperienceMetaData = {
 
 type ProjectcategoryMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class Hero {
+  readonly id: string;
+  readonly headline?: string;
+  readonly subheading?: (string | null)[];
+  readonly heroimage?: (string | null)[];
+  readonly imagealt?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Hero, HeroMetaData>);
+  static copyOf(source: Hero, mutator: (draft: MutableModel<Hero, HeroMetaData>) => MutableModel<Hero, HeroMetaData> | void): Hero;
 }
 
 export declare class FeaturePriority {

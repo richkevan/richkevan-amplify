@@ -3,7 +3,7 @@
 const Title = () => {
     
     return (
-        <h1>Rich Kevan</h1>
+        <a href="/"><h1>Rich Kevan</h1></a>
     )
 }
 
