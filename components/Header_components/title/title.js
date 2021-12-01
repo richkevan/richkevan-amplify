@@ -1,9 +1,9 @@
-
+import Link from 'next/link'
 
 const Title = () => {
     
     return (
-        <a href="/"><h1>Rich Kevan</h1></a>
+        <Link href="/"><h1>Rich Kevan</h1></Link>
     )
 }
 
