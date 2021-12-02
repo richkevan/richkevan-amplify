@@ -11,7 +11,7 @@ const Contact_Page = () => {
         <h1>Contact</h1>
         { Object.keys(contactObj).map(key => {
             return (
-                <div key={contactObj[key].method} className={styles.qcCodes}>
+                <div key={contactObj[key].method}>
                     <Image src={contactObj[key].qr} alt={contactObj[key].method} width={500} height={500} />
                 </div>
             )
