@@ -2,59 +2,34 @@ import Image from 'next/image';
 import styles from './Hero.module.css';
 import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
-import Gaming from '../../public/gaming.png';
-import Arduino from '../../public/arduino.png';
-import Outdoors from '../../public/outdoors.png';
-import Robotics from '../../public/robotics.png';
+import SlideObject from '../../public/slides';
 import { motion } from 'framer-motion';
-
 let cx = classNames.bind(styles);
 
 const HeroSlide = () => {
-    const [headline, setHeadline] = useState('Hey, I\'m a full-stack developer.' +`\n` +'Welcome to my portfolio.');
+    const [headline, setHeadline] = useState('Hey, I\'m a full-stack developer.\n Welcome to my portfolio.');
     const [subHeadline, setSubHeadline] = useState('Here you can find my projects and learn more about me.');
-    const [slide, setSlide] = useState({
-        slide1: {
-            title: 'Gaming',
-            image: Gaming,
-            display: true
-        },
-        slide2: {
-            title: 'Raspberry Pi/Arduino',
-            image: Arduino,
-            display: false
-        },
-        slide3:{
-            title: 'Outdoors',
-            image: Outdoors,
-            display: false
-        },
-        slide4: {
-            title: 'Robotics',
-            image: Robotics,
-            display: false
-        }
-    });
+    const [slide, setSlide] = useState(SlideObject);
 
     useEffect(() => {
         const interval = setInterval(() => {
             let newSlide = {...slide};
-            for (let i=1; i <= Object.keys(slide).length; i++) {
-                console.log(i)
-                if (newSlide[`slide${i}`].display && i != 4) {
-                    newSlide[`slide${i}`].display = false;
-                    newSlide[`slide${i+1}`].display = true;
+            let slideKeys = Object.keys(newSlide);
+            for (let i=0; i < slideKeys.length; i++) {
+                if (newSlide[slideKeys[i]].display && i+1 < slideKeys.length) {
+                    newSlide[slideKeys[i]].display = false;
+                    newSlide[slideKeys[i+1]].display = true;
                     break;
                 }
-                else if (newSlide[`slide${i}`].display && i == 4) {
-                    newSlide[`slide${i}`].display = false;
-                    newSlide[`slide1`].display = true;
+                else if (newSlide[slideKeys[i]].display && i+1 == slideKeys.length) {
+                    newSlide[slideKeys[i]].display = false;
+                    newSlide[slideKeys[0]].display = true;
                     break;
                 }
             }
                 
             setSlide(newSlide);
-        }, 5000);
+        }, 5500);
         return () => clearInterval(interval);
 }, [slide]);
       
@@ -73,19 +48,21 @@ const HeroSlide = () => {
                 {Object.keys(slide).map(obj => {
                     if (slide[obj].display) {
                         return (
-                            <motion.div className={styles.title} 
+                            <div className={styles.title} key={slide[obj].title}>
+                            <h5>Some Hobbies and Passions</h5>
+                            <motion.div  
                             animate={{
-                                left: ['0%', '40%', '40%', '0%'], 
-                                transform: ['translateX(-100%)','translateX(-70%)', 'translateX(-70%)', 'translateX(-100%)'],
-                                opacity: [.3, .9, 1, 0]
+                                transform: ['translateX(-100%)','translateX(5%)', 'translateX(5%)', 'translateX(-100%)'],
+                                opacity: [.3, .9, .7, 0]
                             }}
                             transition={{
-                                duration: 8,
+                                duration: 5.5,
                                 times: [0, .1,.9, 1],
                             }}
                             >
-                            <h1 key={slide[obj].title}>{slide[obj].title}</h1>
+                            <h1>{slide[obj].title}</h1>
                             </motion.div>
+                            </div>
                         )
                     }
                 })}
@@ -94,19 +71,18 @@ const HeroSlide = () => {
                 {Object.keys(slide).map(obj => {
                     if (slide[obj].display) {
                         return (
-                            <motion.div className={styles.slideContainer}
+                            <motion.div className={styles.slideContainer} key={slide[obj].title} 
                             animate={{
-                                right: ['0%', '0%', '0%', '0%'],
-                                transform: ['translateX(100%)','translateX(2%)', 'translateX(2%)', 'translateX(100%)'],
-                                opacity: [.3, .9, 1, 0]
-                                
+                                transform: ['translateX(200%)','translateX(80%)', 'translateX(80rk%)', 'translateX(200%)'],
+                                opacity: [.3, .9, .7, 0]
                             }}
                             transition={{
-                                duration: 8,
+                                duration: 5.5,
                                 times: [0, .1,.9, 1],
                             }}
                             >
-                                <Image key={slide[obj].title} src={slide[obj].image} alt={slide[obj].title} layout='fill' objectFit='cover'/>
+                                <Image src={slide[obj].image} alt={slide[obj].title} layout='fill' objectFit='cover'/>
+                                <a href="https://storyset.com/work">Work illustrations by Storyset</a>
                             </motion.div>
                         )
                     }

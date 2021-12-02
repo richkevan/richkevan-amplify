@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Title = () => {
     
     return (
-        <Link href="/"><h1>Rich Kevan</h1></Link>
+        <Link href='/' passHref><a><h1>Rich Kevan</h1></a></Link>
     )
 }
 
