@@ -1,0 +1,8 @@
+
+
+.qrContainer {
+    height: 300px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }

@@ -1,17 +1,23 @@
-import emailQR from './contact/emailQR.png'
-import textQR from './contact/textQR.png'
+import emailQR from './contact/email.png'
+import textQR from './contact/text.png'
+import callQR from './contact/call.png'
 
 const ContactQR = {
-    email: {
-        method: 'email',
-        email: 'rskevan@me.com',
-        qr: emailQR
+    call: {
+        method: 'tel:',
+        target: '7077706843',
+        qr: callQR
     },
     text: {
-        method: 'text',
-        phone: '+1 (707) 770-6843',
+        method: 'sms://',
+        target: '7077706843',
         qr: textQR
     },
+    email: {
+        method: 'mailto:',
+        target: 'rskevan@me.com',
+        qr: emailQR
+    }
 }
 
 export default ContactQR

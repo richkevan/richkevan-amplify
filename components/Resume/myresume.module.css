@@ -1,0 +1,11 @@
+.resumeHeader > strong {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
+.skills {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}

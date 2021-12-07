@@ -1,21 +1,14 @@
-import Image from 'next/image'
-import { useState } from "react";
-import contactQR from '../public/contactQR'
+import QRCodes from "../components/Contact/qr_codes"
+import styles from '../styles/Home.module.css'
 
 const Contact_Page = () => {
-    const [contactObj, setContactObj] = useState(contactQR);
+    
     
     
     return (
-        <div>
-        <h1>Contact</h1>
-        { Object.keys(contactObj).map(key => {
-            return (
-                <div key={contactObj[key].method}>
-                    <Image src={contactObj[key].qr} alt={contactObj[key].method} width={500} height={500} />
-                </div>
-            )
-        })}
+        <div className={styles.container}>
+            <h1>Contact</h1>
+            <QRCodes />            
         </div>
     )
 }
