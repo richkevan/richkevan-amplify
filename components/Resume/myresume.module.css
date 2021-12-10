@@ -1,11 +1,55 @@
+.resume {
+    width: 8.5in;
+    height: 11in;
+    background-color: aliceblue;
+    padding: .25in;
+}
+
+.resume * {
+    font-size: 12px;
+    color:darkblue;
+    margin: 0;
+}
+
+.resume section {
+    margin-bottom: 1em;
+}
+
 .resumeHeader > strong {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
 }
 
-.skills {
+.resumeSection {
+    
+}
+
+.summary {
+    font-size: 12px;
+}
+
+.columns {
+    width: 100%;
+}
+.projects {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+.projects > ul {
+    list-style-type: none;
+    padding: 0;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    
+}
+
+.projects > ul > li {
+    flex: 1 1 30%;
+}
+
+.projects > p {
+    padding-left: .25in;
 }
