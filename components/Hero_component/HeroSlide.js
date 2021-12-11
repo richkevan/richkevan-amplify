@@ -82,7 +82,6 @@ const HeroSlide = () => {
                             }}
                             >
                                 <Image src={slide[obj].image} alt={slide[obj].title} layout='fill' objectFit='cover'/>
-                                <a href="https://storyset.com/work">Work illustrations by Storyset</a>
                             </motion.div>
                         )
                     }
