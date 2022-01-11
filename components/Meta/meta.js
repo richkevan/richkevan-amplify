@@ -8,6 +8,7 @@ const PageMeta = () => {
             <title>Rich Kevan React/Django Developer</title>
             <meta name="title" content="Rich Kevan React/Django Developer"/>
             <meta name="description" content="Cutting Edge Full Stack Engineer • React/Django Developer • Raspberry Pi/Arduino nerd • Robotics fan"/>
+            <meta name="author" content="Rich Kevan"/>
 
             <meta property="og:type" content="website"/>
             <meta property="og:url" content="https://richkevan.com/"/>

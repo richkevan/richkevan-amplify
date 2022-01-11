@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import style from '../../styles/Home.module.css'
-import styles from './myresume.module.css'
+import styles from '@styles/Resume.module.css'
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
@@ -9,7 +9,7 @@ const MyResume = (props) => {
 
 
     return (
-        <div className={style.container}>
+        <div className={styles.resume_container}>
             <div className={styles.resume}>
                 <section className={styles.resumeHeader}>
                     <h5>Rich Kevan</h5>

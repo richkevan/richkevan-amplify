@@ -1,13 +1,12 @@
-import Title from './title/title';
-import NavBar from './nav/navbar';
-import styles from './header.module.css';
-
+import Link from 'next/link'
+import NavBar from '@components/Header_components/nav/navbar.js';
+import style from '@styles/Navigation.module.css';
 
 const Heading = () => {
 
     return (
-        <div className={styles.Header_div}>
-        <Title className={styles.Header_title}/>
+        <div className={style.Header_div}>
+        <Link href='/' passHref className={style.Header}><a><h1>Rich Kevan</h1></a></Link>
         <NavBar />
         </div>
     )

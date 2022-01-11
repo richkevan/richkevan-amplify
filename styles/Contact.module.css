@@ -1,0 +1,32 @@
+@media screen and (max-width: 768px) {
+    .qrScroll{
+        position: relative;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-color: #fff transparent;
+    }
+
+    .caretSquare {
+        position: absolute;
+        top: 35%;
+        z-index: 1000;
+    }
+
+    #left {
+        left: 0;
+    }
+
+    #right {
+        right: 0;
+    }
+    
+    .qrContainer {
+        width: 300vw;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+      
+      .qrContainer > a{
+          width: 100vw;
+    }
+}

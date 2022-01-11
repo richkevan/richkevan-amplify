@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import styles from './Hero.module.css';
+import style from '@styles/Home.module.css';
 import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
-import SlideObject from '../../public/slides';
+import SlideObject from '@public/slides';
 import { motion } from 'framer-motion';
-let cx = classNames.bind(styles);
+const cx = classNames.bind(style);
 
 const HeroSlide = () => {
     const [headline, setHeadline] = useState('Hey, I\'m a full-stack developer.\n Welcome to my portfolio.');
@@ -35,24 +35,23 @@ const HeroSlide = () => {
       
     return (
     // Page Container
-        <div className={styles.container}>
+        <>
     {/*Hero Section*/}
-            <div className={styles.heroSlide}>
+            <div className={style.heroSlide}>
     {/* Hero Heading */}
-                <div className={styles.headings}>
+                <div className={style.headings}>
                     <h3>{headline}</h3>
                     <h5>{subHeadline}</h5>
                 </div>
     {/* Hero Slide Titles */}
-                
+    <h5>Some Hobbies and Passions</h5>
                 {Object.keys(slide).map(obj => {
                     if (slide[obj].display) {
                         return (
-                            <div className={styles.title} key={slide[obj].title}>
-                            <h5>Some Hobbies and Passions</h5>
+                            <div className={style.slideTitle} key={slide[obj].title}>
                             <motion.div  
                             animate={{
-                                transform: ['translateX(-100%)','translateX(5%)', 'translateX(5%)', 'translateX(-100%)'],
+                                transform: ['translateX(-100%)','translateX(0%)', 'translateX(0%)', 'translateX(-100%)'],
                                 opacity: [.3, .9, .7, 0]
                             }}
                             transition={{
@@ -71,9 +70,9 @@ const HeroSlide = () => {
                 {Object.keys(slide).map(obj => {
                     if (slide[obj].display) {
                         return (
-                            <motion.div className={styles.slideContainer} key={slide[obj].title} 
+                            <motion.div className={style.slideContainer} key={slide[obj].title} 
                             animate={{
-                                transform: ['translateX(200%)','translateX(80%)', 'translateX(80rk%)', 'translateX(200%)'],
+                                transform: ['translateX(200%)','translateX(0%)', 'translateX(0%)', 'translateX(200%)'],
                                 opacity: [.3, .9, .7, 0]
                             }}
                             transition={{
@@ -87,7 +86,7 @@ const HeroSlide = () => {
                     }
                 })}
             </div>
-        </div>
+        </>
     )
 }
 
