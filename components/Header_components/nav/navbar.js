@@ -1,35 +1,34 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase, faFileAlt, faEnvelope, faBlog, faHome } from '@fortawesome/free-solid-svg-icons';
 import style from '@styles/Navigation.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navbar = () => {
     const [windowSize, setWindowSize] = useState(0);
     const [menu, setMenu] = useState({
             Home: {
                 href: '/',
-                icon: faHome,
+                icon: 'home',
                 name: 'Home'
             },
             Portfolio: {
                 href: '/portfolio',
-                icon: faBriefcase,
+                icon: 'briefcase',
                 name: 'Portfolio'
             },
             Resume: {
                 href: '/resume',
-                icon: faFileAlt,
+                icon: 'file-alt',
                 name: 'Resume'
             },
             Contact: {
                 href: '/contact',
-                icon: faEnvelope,
+                icon: 'envelope',
                 name: 'Contact'
             },
             Blog: {
                 href: '/blog',
-                icon: faBlog,
+                icon: 'blog',
                 name: 'Blog'
             }
     });
@@ -37,9 +36,8 @@ const Navbar = () => {
     useEffect(() => {
         window.addEventListener('resize', () => {
             setWindowSize(window.innerWidth);
-            console.log(windowSize);
+            console.log(windowSize)
         })
-        console.log(windowSize);
     }, [windowSize])
 
 
@@ -47,9 +45,8 @@ const Navbar = () => {
         <nav className={style.Header_nav}>
             {Object.keys(menu).map((key) => {
                 return (
-                    <Link href={menu[key].href} key={key} passHref>
-                           {windowSize <= 390 ? <FontAwesomeIcon className="fa-3x" icon={menu[key].icon} />:<span className={style.Nav_link}>{menu[key].name}</span>} 
-                            
+                    <Link href={menu[key].href} key={key}>
+                           {windowSize <= 926 ? <FontAwesomeIcon icon={menu[key].icon} />:<span className={style.Nav_link}>{menu[key].name}</span>} 
                     </Link>
                 )
             })}

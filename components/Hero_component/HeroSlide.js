@@ -80,7 +80,7 @@ const HeroSlide = () => {
                                 times: [0, .1,.9, 1],
                             }}
                             >
-                                <Image src={slide[obj].image} alt={slide[obj].title} layout='fill' objectFit='cover'/>
+                                <Image src={slide[obj].image} alt={slide[obj].title} layout='fill' objectFit='contain' priority='true'/>
                             </motion.div>
                         )
                     }

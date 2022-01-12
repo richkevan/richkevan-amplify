@@ -15,11 +15,6 @@ html, body {
   position: relative;
 }
 
-@media screen and (max-width: 768px) {
-  html, body {
-    font-size: 14px;
-  }
-
 h5 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -44,8 +39,25 @@ a {
 
 * {
   box-sizing: border-box;
+  margin-block-start: .5rem;
+  margin-block-end: .5rem;
 }
-  
+
+select {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 428px) {
+  html, body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width:429px) and (max-width: 926px) {
+  html, body {
+    font-size: 12px;
+  }
 }
 
 

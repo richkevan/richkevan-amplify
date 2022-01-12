@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 390px) {
     .qrScroll{
         position: relative;
         overflow-x: scroll;

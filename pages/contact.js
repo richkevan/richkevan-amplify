@@ -10,12 +10,10 @@ const Contact_Page = () => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        console.log(count)
         setContactObj(document.getElementsByClassName('contactLink'));
     },[])
     
     const handleClick = (e) => {
-        console.log(count)
         if (e.target.id.includes('left')) {
             contactObj[count-1].scrollIntoView({behavior: 'smooth'})
             setCount(count-1)

@@ -2,7 +2,7 @@ import styles from '@styles/Home.module.css'
 import HeroSlide from '@components/Hero_component/HeroSlide'
 import PageMeta from '@components/Meta/meta'
 
-export default function Home() {
+const Home = () => {
   return (
     <div className={styles.pageContainer}>
       <PageMeta />
@@ -10,3 +10,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home

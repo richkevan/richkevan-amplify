@@ -1,8 +1,12 @@
 
-@media screen and (max-width: 768px) {
-  .pageContainer {
-    margin: 0 20px;
-  }
+.pageContainer {
+  overflow-y: scroll;
+  height: 90vh;
+  width: 95%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 428px) {
   
   .heroSlide {
     width: 100%;
@@ -23,17 +27,53 @@
     text-align: center;
   }
 
+  .slideTitle h1 {
+    text-shadow: 5px 5px 5px hsla(0, 0%, 25%, 1);
+    z-index: 100;
+  }
+
   .slideContainer {
     position: relative;
     left: 0;
-    bottom: 50px;
+    right: 0;
+    bottom: 25px;
     width: 100%;
     height: 50%;
     overflow: hidden;
   }
 }
 
+@media screen and (min-width: 429px) and (max-width:926px) {
+  .pageContainer{
+    overflow-y: hidden;
+  }
+  .heroSlide {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+  .headings {
+    width: 100%;
+  }
 
+  .heroSlide > h5 {
+    width: 100%;
+  }
+
+  .slideTitle {
+    position: relative;
+    bottom: 0;
+    width: 50%;
+    text-align: center;
+  }
+  .slideContainer {
+    position: absolute;
+    right: -15%;
+    bottom: 50px;
+    width: 75%;
+    height: 75%;
+  }
+}
 
 
 

@@ -15,15 +15,10 @@ const MyResume = (props) => {
                     <h5>Rich Kevan</h5>
                     <strong>
                         <div>Fairfield, CA</div>
-                        <div></div>
                         <div>(707)770-6843</div>
-                        <div></div>
                         <div>rskevan@me.com</div>
-                        <div></div>
                         <div>www.richkevan.com</div>
-                        <div></div>
                         <div>linkedin.com/in/richkevan</div>
-                        <div></div>
                         <div>github.com/richkevan</div>
                     </strong>
                 </section>
@@ -34,34 +29,33 @@ const MyResume = (props) => {
                     <strong>Cutting Edge Full Stack Engineer • React/Django Developer • Raspberry Pi/Arduino nerd • Robotics fan</strong><br />
                     <strong>Certifications</strong>
                     <ul>
-                        <li>Back End Development and APIs | freeCodeCamp | Oct 2021</li>
-                        <li>Front End Development Libraries | freeCodeCamp | Apr 2021</li>
-                        <li>JavaScript Algorithms and Data Structures | freeCodeCamp | Aug 2020</li>
-                        <li>Responsive Web Design | freeCodeCamp | Jul 2020</li>
+                        <li>Back End Development and APIs | freeCodeCamp</li>
+                        <li>Front End Development Libraries | freeCodeCamp</li>
+                        <li>JavaScript Algorithms and Data Structures | freeCodeCamp</li>
+                        <li>Responsive Web Design | freeCodeCamp</li>
                     </ul>
                     <strong>Skills</strong>
                     <section className={styles.columns}>
-                    <div>
                     <ul>
-                        <li>HTML (Advanced)</li>
-                        <li>CSS (Advanced)</li>
-                        <li>Javascript (Intermediate)</li>
+                        <li>HTML/CSS (Advanced)</li>
+                        <li>Javascript (Advanced)</li>
+                        <li>React (Intermediate)</li>
                     </ul>
-                    </div>
-                    <div>
                     <ul>
                         <li>NodeJS (Intermediate)</li>
-                        <li>Python (Beginner)</li>
-                        <li>Django (Beginner)</li>
+                        <li>Python/Django (Beginner)</li>
+                        <li>SQL/NoSQL (Intermediate)</li>
                     </ul>
-                    </div>
-                    <div>
                     <ul>
                         <li>AWS (Beginner)</li>
                         <li>Azure (Beginner)</li>
                         <li>GIT (Intermediate)</li>
                     </ul>
-                    </div>
+                    <ul>
+                        <li>Scrum/Agile (Intermediate)</li>
+                        <li>Rest APIS (Intermediate)</li>
+                        <li>Test Driven Development (Intermediate)</li>
+                    </ul>
                     </section>
                 </section>
                 <section className={cx({resumeSection: true})}>
@@ -120,7 +114,7 @@ const MyResume = (props) => {
                     <h5>EXPERIENCE</h5>
                     <hr />
                     <div>
-                        <h3>Bayside Church | Sept 2017 - Dec 2021 | Tech Assistant/Junior Application Developer</h3>
+                        <strong>Bayside Church | Sept 2017 - Dec 2021 | Tech Assistant/Junior Application Developer</strong>
                         <p>Assist in the development of company website and internal company software</p>
                         <ul>
                             <li>Ensured all technical issues were ticketed, responded to tier 1 and tier 2 tickets</li>
@@ -130,7 +124,7 @@ const MyResume = (props) => {
                         </ul>
                     </div>
                     <div>
-                        <h3>Kenzie Academy | Apr 2020 - Apr 2021 | Project Based Training</h3>
+                        <strong>Kenzie Academy | Apr 2020 - Apr 2021 | Project Based Training</strong>
                         <p>Operate in an Agile enviroment gather project requirments and create applications in a timely manner that meet requirements</p>
                         <ul>
                             <li>Built scalable applications in Javascript & Python utilizing frameworks, libraries, components</li>
@@ -140,7 +134,7 @@ const MyResume = (props) => {
                         </ul>
                     </div>
                     <div>
-                        <h3>US Army | May 2000 - Apr 2021 | Communication Manager</h3>
+                        <strong>US Army | May 2000 - Apr 2021 | Communication Manager</strong>
                         <p>Responsible for the overall management of communications and subordinates in the company</p>
                         <ul>
                             <li>Organize, train, advise and supervise in the installation, utilization, and operation of communication equipment</li>
@@ -152,10 +146,10 @@ const MyResume = (props) => {
                     <h5>EDUCATION</h5>
                     <hr />
                     <div>
-                        <h3>Western Governor&apos;s University | B.S. Computer Science concentration in Software Development | 2022</h3>
+                        <strong>Western Governor&apos;s University | B.S. Computer Science concentration in Software Development | 2022</strong>
                     </div>
                     <div>
-                        <h3>Kenzie Academy | Certificate in Full Stack Development | 2021</h3>
+                        <strong>Kenzie Academy | Certificate in Full Stack Development | 2021</strong>
                     </div>
                 </section>
             </div>

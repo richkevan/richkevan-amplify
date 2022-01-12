@@ -1,10 +1,10 @@
+    .container {
+        width: 95vw;
+        margin: 0 auto;
+    }
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 428px) {
     .container{
-        width: 100%;
-        height: 100%;
-        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -70,5 +70,85 @@
     
     .projects > p {
         padding-left: .25in;
+    }
 }
+
+@media screen and (min-width:429px) and (max-width: 926px) {
+    .container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container > select {
+        width: 80%;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .resume_container{
+        width: 100%;
+        height: 75vh;
+        overflow-y: scroll;
+    }
+    .resume {
+        width: 100vw;
+        height: fit-content;
+        background-color: aliceblue;
+        padding: .25in;
+    }
+    
+    .resume * {
+        color:darkblue;
+        margin: 0;
+    }
+    
+    .resume section {
+        margin-bottom: 1em;
+    }
+    
+    .resumeHeader > strong {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        gap: 1em;
+    }
+    
+    .summary {
+        font-size: 12px;
+    }
+    
+    .columns {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .columns > ul {
+        flex: 1 1 fit-content;
+        list-style-type: none;
+        text-align: left;
+        padding-left: .75rem;
+    }
+    
+    .projects {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+    }
+    .projects > ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        
+    }
+    
+    .projects > ul > li {
+        flex: 1 1 30%;
+    }
+    
+    .projects > p {
+        padding-left: .25in;
+    }
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import pageStyles from '../../styles/Portfolio.module.css'
+import pageStyles from '@styles/Portfolio.module.css'
 
 const Projects = (props) => {
     const [count, setCount] = useState(0)

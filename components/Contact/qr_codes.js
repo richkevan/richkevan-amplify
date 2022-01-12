@@ -12,7 +12,7 @@ const QRCodes = () => {
                 { Object.keys(contactObj).map(key => {
                     return (
                         <a href={`${contactObj[key].method}${contactObj[key].target}`} key={contactObj[key].method} className="contactLink">
-                        <Image src={contactObj[key].qr} alt={contactObj[key].method} layout='responsive' />
+                        <Image src={contactObj[key].qr} alt={contactObj[key].method} layout='responsive' priority='true'/>
                         </a>
                     )
                 })}

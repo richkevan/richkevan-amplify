@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Projects from '@components/Portfolio/projects'
-import styles from '@styles/Home.module.css'
-import pageStyles from '@styles/Portfolio.module.css'
+import styles from '@styles/Portfolio.module.css'
 
 const Portfolio_Page = () => {
     const [projectsObj, setProjectsObj] = useState({
@@ -47,10 +46,10 @@ const Portfolio_Page = () => {
     })
 
     return (
-        <>
+        <div className={styles.pageContainer}>
         <h1>Portfolio</h1>
         <Projects projects={projectsObj} />
-        </>
+        </div>
     )
 }
 

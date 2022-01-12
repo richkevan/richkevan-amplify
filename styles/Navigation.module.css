@@ -1,23 +1,24 @@
+.Header_div {
+    display: flex;
+}
 
+.Header_nav {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-block: 0;
+}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 428px) {
     .Header_div {
-        display: flex;
         flex-flow: column nowrap;
     }
 
-    .Header_div h1 {
-        margin: .5rem auto;
-        text-align: center;
-    }
 
     .Header_nav {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        display: flex;
-        flex-flow: row nowrap;
         justify-content: space-around;
         z-index: 1000;
         background-color: hsla(200, 60%, 99%, 1);
@@ -28,6 +29,27 @@
     }
 
     .Header_nav > svg {
-        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+        font-size: 2rem;
+        filter: drop-shadow(3px 3px 2px #fff);
+    }
+}
+
+@media screen and (min-width: 429px) and (max-width: 926px) {
+    
+    .Header_div {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        margin: .5rem .75rem;
+    }
+
+    .Header_nav {
+        width: 50%;
+        justify-content: space-around;
+    }
+    
+    .Header_nav > svg {
+        font-size: 2rem;
+        filter: drop-shadow(3px 3px 2px #000);
     }
 }
