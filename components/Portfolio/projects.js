@@ -9,7 +9,7 @@ const Projects = (props) => {
     
     useEffect(() => {
         setProjects(document.getElementsByClassName("projectCards"))
-    })
+    }, [])
     const buttonScroll = (e) => {
             if (e.target.id === 'next') {
                 projects[count+1].scrollIntoView({behavior: 'smooth'})
