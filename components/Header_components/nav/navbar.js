@@ -4,7 +4,7 @@ import style from '@styles/Navigation.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navbar = () => {
-    const [windowSize, setWindowSize] = useState(0);
+    const [windowSize, setWindowSize] = useState(927);
     const [menu, setMenu] = useState({
             Home: {
                 href: '/',
@@ -36,7 +36,8 @@ const Navbar = () => {
     useEffect(() => {
         window.addEventListener('resize', () => {
             setWindowSize(window.innerWidth);
-            console.log(windowSize)
+            console.log(window.devicePixelRatio);
+            console.log(navigator.userAgent);
         })
     }, [windowSize])
 
@@ -46,7 +47,7 @@ const Navbar = () => {
             {Object.keys(menu).map((key) => {
                 return (
                     <Link href={menu[key].href} key={key}>
-                           {windowSize <= 926 ? <FontAwesomeIcon icon={menu[key].icon} />:<span className={style.Nav_link}>{menu[key].name}</span>} 
+                           {windowSize >= 927 ? <span className={style.Nav_link}>{menu[key].name}</span>:<FontAwesomeIcon icon={menu[key].icon} />} 
                     </Link>
                 )
             })}

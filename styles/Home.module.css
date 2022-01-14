@@ -1,11 +1,16 @@
 
 .pageContainer {
-  overflow-y: scroll;
-  height: 90vh;
+  height: 85vh;
   width: 95%;
   margin: 0 auto;
 }
+.slideContainer > span {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
 
+/* Mobile Portrait */
 @media screen and (max-width: 428px) {
   
   .heroSlide {
@@ -41,41 +46,84 @@
     height: 50%;
     overflow: hidden;
   }
+
 }
 
+/* Mobile Landscape */
 @media screen and (min-width: 429px) and (max-width:926px) {
   .pageContainer{
     overflow-y: hidden;
   }
-  .heroSlide {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-  }
+  
   .headings {
     width: 100%;
   }
 
-  .heroSlide > h5 {
+  .heroSlide {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
+    height: 60vh;
+    position: relative;
   }
 
   .slideTitle {
+    display: block;
+    width: 100%;
     position: relative;
     bottom: 0;
     width: 50%;
     text-align: center;
   }
+
   .slideContainer {
-    position: absolute;
-    right: -15%;
-    bottom: 50px;
-    width: 75%;
-    height: 75%;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
   }
 }
 
+@media screen and (min-width: 927px) {
+  
+  .heroSlide {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    position: relative;
+  }
 
+  .headings {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .slideTitle {
+    width: 100%;
+    text-align: center;
+  }
+
+  .slideTitle h1 {
+    text-shadow: 5px 5px 5px hsla(0, 0%, 25%, 1);
+    z-index: 100;
+  }
+
+  .slideContainer {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 25px;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+  }
+
+}
 
 
 

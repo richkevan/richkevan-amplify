@@ -53,3 +53,22 @@
         filter: drop-shadow(3px 3px 2px #000);
     }
 }
+
+@media screen and (min-width: 926px) {
+    .Header_div {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        margin: .5rem .75rem;
+    }
+
+    .Header_nav {
+        width: 75%;
+        justify-content: space-around;
+    }
+    
+    .Header_nav > span {
+        font-size: 1.5rem;
+        filter: drop-shadow(3px 3px 2px #000);
+    }
+}

@@ -1,14 +1,60 @@
-@media screen and (max-width: 390px) {
+.qrContainer > a > span {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+@media screen and (max-width: 428px) {
+    .pageContainer {
+        height: 90vh;
+        width: 95%;
+        margin: 0 auto;
+      }
+
+    .contactContainer {
+        position: relative;
+        width: 100%;
+        height: 95%;
+        bottom: 0vh;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    
+    #contactForm {
+        position: relative;
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0 auto;
+        font-size: 1.15rem;
+        font-weight: 500;
+    }
+
+    #contactForm > input, #contactForm > textarea {
+        width: 80vw;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px hsla(200, 60%, 99%, 1);
+    }
+
+    #contactForm > input {
+        height: 5vh;
+    }
+
     .qrScroll{
         position: relative;
+        height: 50%;
+        width: 90vw;
+        bottom: 0;
         overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        scrollbar-color: #fff transparent;
+        overflow-y: hidden;
     }
 
     .caretSquare {
         position: absolute;
-        top: 35%;
+        top: 60%;
         z-index: 1000;
     }
 
@@ -21,12 +67,158 @@
     }
     
     .qrContainer {
-        width: 300vw;
+        width: 270vw;
         display: flex;
         flex-flow: row nowrap;
     }
       
-      .qrContainer > a{
-          width: 100vw;
+    .qrContainer > a {
+        position: relative;
+        width: 90vw;
+        height: 40vh;
+    }
+}
+
+@media screen and (min-width:429px) and (max-width: 926px) {
+    .pageContainer {
+        height: 85vh;
+        width: 95%;
+        margin: 0 auto;
+      }
+
+    .contactContainer {
+        position: relative;
+        width: 100%;
+        height: 65vh;
+        bottom: 0vh;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    
+    #contactForm {
+        position: relative;
+        width: 50vw;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left: 10vw;
+        font-size: 1.15rem;
+        font-weight: 500;
+    }
+
+    #contactForm > input, #contactForm > textarea {
+        width: 30vw;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px hsla(200, 60%, 99%, 1);
+    }
+    #contactForm > input {
+        height: 8vh;
+    }
+    
+    .qrScroll{
+        position: relative;
+        width: 50vw;
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .caretSquare {
+        position: absolute;
+        top: 40%;
+        z-index: 1000;
+    }
+
+    #left {
+        left: 50vw;
+    }
+
+    #right {
+        right: 4%;
+    }
+    
+    .qrContainer {
+        width: 150vw;
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+      
+      .qrContainer > a {
+          position: relative;
+          width: 100%;
+          height: 90%;
+          margin: 0;
+    }
+}
+
+@media screen and (min-width: 927px) {
+    .pageContainer {
+        height: 90vh;
+        width: 95%;
+        margin: 0 auto;
+      }
+
+    .contactContainer {
+        position: relative;
+        width: 100%;
+        height: 95%;
+        bottom: 0vh;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    
+    #contactForm {
+        position: relative;
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0 auto;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    #contactForm > input, #contactForm > textarea {
+        width: 80vw;
+        font-size: 1.25rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px hsla(200, 60%, 99%, 1);
+    }
+
+    #contactForm > input {
+        height: 5vh;
+    }
+
+    .qrScroll{
+        position: relative;
+        display: flex;
+        height: 50%;
+        width: 100%;
+        bottom: 0;
+        justify-self: center;
+        overflow-x: visible;
+    }
+
+    .caretSquare {
+        display: none;
+    }
+    
+    .qrContainer {
+        width: 100vw;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+      
+    .qrContainer > a {
+        position: relative;
+        height: 40vh;
+        flex: 1 0 30%;
     }
 }
