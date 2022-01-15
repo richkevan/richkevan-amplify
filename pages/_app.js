@@ -14,16 +14,6 @@ function MyApp({ Component, pageProps }) {
     Fathom.load(process.env.FATHOM_ID,{
       includedDomains: ['richkevan.com']
     })
-    function onRouteChangeComplete() {
-      Fathom.trackPageview();
-    }
-    // Record a pageview when route changes
-    router.events.on('routeChangeComplete', onRouteChangeComplete);
-  
-    // Unassign event listener
-    return () => {
-      router.events.off('routeChangeComplete', onRouteChangeComplete);
-    };
   }, [])
 
   
