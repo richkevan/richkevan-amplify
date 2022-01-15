@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import '@styles/globals.css'
 import Layout from '../components/layout'
 import PlausibleProvider from 'next-plausible';
@@ -10,10 +11,22 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 library.add(faBriefcase, faFileAlt, faEnvelope, faBlog, faHome);
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   useEffect(() => {
     Fathom.load(process.env.FATHOM_ID,{
       includedDomains: ['richkevan.com']
     })
+
+    function onRouteChangeComplete() {
+      Fathom.trackPageview();
+    }
+    // Record a pageview when route changes
+    router.events.on('routeChangeComplete', onRouteChangeComplete);
+
+    // Unassign event listener
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete);
+    };
   }, [])
 
   
