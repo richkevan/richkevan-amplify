@@ -13,7 +13,7 @@ library.add(faBriefcase, faFileAlt, faEnvelope, faBlog, faHome);
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
-    Fathom.load(process.env.FATHOM_ID,{
+    Fathom.load(XXMTEHMX,{
       includedDomains: ['richkevan.com']
     })
 
