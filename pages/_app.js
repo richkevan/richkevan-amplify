@@ -15,26 +15,15 @@ function MyApp({ Component, pageProps }) {
     Fathom.load('XXMTEHMX',{
       includedDomains: ['richkevan.com', 'www.richkevan.com'],
     })
-
-    function onRouteChangeComplete() {
-      Fathom.trackPageview();
-    }
-    // Record a pageview when route changes
-    router.events.on('routeChangeComplete', onRouteChangeComplete);
-
-    // Unassign event listener
-    return () => {
-      router.events.off('routeChangeComplete', onRouteChangeComplete);
-    };
   }, [])
 
   
   return (
-    // <PlausibleProvider domain='richkevan.com'>
+    <PlausibleProvider domain='richkevan.com'>
     <Layout>
       <Component {...pageProps} />
     </Layout>
-    // </PlausibleProvider>
+    </PlausibleProvider>
   )
 }
 
