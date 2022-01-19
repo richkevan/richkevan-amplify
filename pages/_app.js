@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as Fathom from 'fathom-client';
+import LogRocket from 'logrocket';
 import '@styles/globals.css'
 import Layout from '../components/layout'
 import PlausibleProvider from 'next-plausible';
@@ -13,9 +14,10 @@ library.add(faBriefcase, faFileAlt, faEnvelope, faBlog, faHome);
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
-    Fathom.load('XXMTEHMX',{
+    Fathom.load(process.env.REACT_APP_FATHOM_ID,{
       includedDomains: ['richkevan.com', 'www.richkevan.com'],
     })
+    LogRocket.init('alcsya/richkevancom')
 
     function onRouteChangeComplete() {
       Fathom.trackPageview();
