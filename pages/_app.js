@@ -13,8 +13,8 @@ library.add(faBriefcase, faFileAlt, faEnvelope, faBlog, faHome);
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
-    Fathom.load(XXMTEHMX,{
-      includedDomains: ['richkevan.com']
+    Fathom.load('XXMTEHMX',{
+      includedDomains: ['richkevan.com', 'www.richkevan.com'],
     })
 
     function onRouteChangeComplete() {
@@ -31,11 +31,11 @@ function MyApp({ Component, pageProps }) {
 
   
   return (
-    <PlausibleProvider domain='richkevan.com'>
+    // <PlausibleProvider domain='richkevan.com'>
     <Layout>
       <Component {...pageProps} />
     </Layout>
-    </PlausibleProvider>
+    // </PlausibleProvider>
   )
 }
 
